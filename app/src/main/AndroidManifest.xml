@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".CatalogActivity"
-            android:label="@string/app_name">
+            android:label="Pets">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,6 +28,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CatalogActivity" />
         </activity>
+        <provider
+            android:authorities="com.example.hp.com.databasetesting"
+            android:name=".data.PetProvider"
+            android:exported="false"/>
+
     </application>
 
 </manifest>
