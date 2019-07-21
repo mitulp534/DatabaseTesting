@@ -2,10 +2,20 @@ package com.example.hp.com.databasetesting.data;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.UriMatcher;
 import android.database.Cursor;
 import android.net.Uri;
 
 public class PetProvider extends ContentProvider  {
+    private static final int PETS=100;
+    private static final int PETS_ID=101;
+
+    private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+
+    static {
+        sUriMatcher.addURI(PetContract.CONTENT_AUTHORITY,PetContract.PATH_PETS,PETS);
+        sUriMatcher.addURI(PetContract.CONTENT_AUTHORITY,PetContract.PATH_PETS + "/#",PETS_ID);
+    }
 
     public static final String LOG_TAG = PetProvider.class.getSimpleName();
 
